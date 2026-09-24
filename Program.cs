@@ -1,11 +1,12 @@
-﻿namespace WestcoastBank;
+﻿using WestcoastBank.Models.Accounts;
+
+namespace WestcoastBank;
 
 class Program
 {
-    static Account account_1 = new("1111-5678");
+    static readonly Account account_1 = new("1111-5678");
     static SavingsAccount account_2 = new("1111-5678");
-    static List<Account> accounts = [];
-    static DataFile df = new(); 
+    static readonly List<Account> accounts = [];
 
     static void Main()
     {
@@ -119,11 +120,16 @@ class Program
 
     static void DisplayTransactions()
     {
-        List<Transaction> txns = df.ReadData();
+        /*List<Transaction> txns = DataFile.ReadData(); //instead created old fashion constructor in Account
         foreach (var tran in txns)
         {
             Console.WriteLine(tran.ToString());
-        } 
+        } */
+
+        foreach (Transaction trx in account_1.Transactions)
+        {
+            Console.WriteLine(trx);
+        }
         /*
         foreach (var tran in account_2.Transactions)
         {

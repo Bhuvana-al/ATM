@@ -1,4 +1,4 @@
-﻿namespace WestcoastBank;
+﻿namespace WestcoastBank.Models.Accounts;
 
 public class SavingsAccount(string accountNo)
     : Account(accountNo)
